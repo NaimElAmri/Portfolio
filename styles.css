@@ -1,0 +1,486 @@
+/* Import Lato Font */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #333;
+  background-color: #f5f5f5;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-decoration: underline green 4px;
+  text-underline-offset: 0.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#about,
+#skills,
+#experience {
+  scroll-margin-top: 4rem; /* Adjust this value as needed */
+}
+
+/* Sticky Navigation */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #f5f5f5;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding-bottom: 5px;
+  transition: color 0.3s ease-in-out;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: green;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+nav a.active::after {
+  transform: scaleX(1);
+}
+
+/* Main Layout */
+main {
+  flex: 1;
+  padding: 2rem;
+  text-align: center;
+  /*
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("img/abstract.svg") repeat center center;
+  background-size: 300px; */
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%; /* Ensure it spans the full width */
+  height: 90vh; /* Adjust the height of the section */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Start positioning from the top */
+  align-items: center; /* Center the content horizontally */
+  text-align: center;
+  padding-top: 15rem; /* Adjust the top space */
+  background: url("img/abstract.webp") repeat; /* Set the background image and enable repeating */
+}
+
+.arrow-container {
+  position: absolute;
+  bottom: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #333;
+  animation: bounce 1s infinite alternate ease-in-out;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    transform: translateX(-50%) translateY(15px);
+  }
+}
+
+/* Divider */
+.divider {
+  border: none;
+  height: 2px;
+  background: #333;
+  width: 75%;
+  margin: 2rem auto;
+  opacity: 0.5;
+}
+
+/* About Section */
+.about {
+  padding: 2rem;
+  text-align: center;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows the items to wrap if needed */
+  justify-content: center; /* Centers items when stacked */
+  align-items: center; /* Align items properly */
+  gap: 2rem; /* Adds space between image and text */
+}
+
+.about-image {
+  flex: 1 1 300px; /* Ensures the image has a minimum size but remains flexible */
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+}
+
+.about-description {
+  flex: 1 1 300px; /* Ensures text has a flexible size */
+  max-width: 600px;
+  text-align: left;
+}
+
+.about-description p {
+  max-width: 600px;
+  margin: 0 2.5rem 1rem;
+  text-align: block;
+}
+
+/* Skills Section */
+.skills-overview {
+  text-align: center;
+  padding: 2rem;
+}
+
+.skills-intro {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+
+.skill-box {
+  background-color: #d3d3d3;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.skill-box:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+  box-shadow: 2px 2px 100px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon {
+  font-size: 40px; /* Adjust size */
+  color: #333; /* Adjust color */
+  display: block;
+  margin: 0 auto 10px; /* Center it */
+}
+
+.skill h3 {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.skill {
+  margin: 15px 0;
+  text-align: left;
+}
+
+.skill p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.progress-bar {
+  background-color: #ccc;
+  height: 10px;
+  border-radius: 5px;
+  border: #aaaaaa solid 0.1px;
+  overflow: hidden;
+}
+
+.progress-bar div {
+  height: 100%;
+  background-color: green;
+}
+
+/* Experience Section */
+.experience {
+  text-align: center;
+  padding: 2rem;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 6.25rem auto;
+}
+
+.timeline-container {
+  padding: 10px 50px;
+  margin: 20px 0;
+  position: relative;
+  width: 50%;
+  animation: movedown 0.6s linear forwards;
+  opacity: 0;
+}
+@keyframes movedown {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.timeline-container:nth-child(1) {
+  animation-delay: 0s;
+}
+.timeline-container:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.timeline-container:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.timeline-container:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.left-container {
+  left: 0;
+}
+
+.right-container {
+  left: 50%;
+}
+
+.timeline-container img {
+  position: absolute;
+  width: 50px;
+  border-radius: 50%;
+  border: #333 solid px;
+  background-color: #f5f5f5;
+  right: -25px;
+  top: 32px;
+  z-index: 10;
+}
+
+.right-container img {
+  left: -25px;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background: #333;
+  left: 50%;
+  top: 0;
+  margin-left: -2px;
+  z-index: -1;
+  animation: moveline 3s linear forwards;
+}
+@keyframes moveline {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+.timeline-box {
+  text-align: left;
+  padding: 20px;
+  background: #dadada;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-box h3 {
+  font-weight: 600;
+}
+
+.timeline-box small {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.left-container-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 42px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #dadada;
+  right: 35px;
+}
+
+.right-container-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 42px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #dadada;
+  left: 35px;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline {
+    margin: 50px auto;
+  }
+
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline-container {
+    width: 100%;
+    padding: 0 25px 0 80px;
+  }
+
+  .timeline-box {
+    font-size: 13px;
+  }
+  .timeline-box small {
+    margin-bottom: 10px;
+  }
+
+  .right-container {
+    left: 0;
+  }
+
+  .left-container img,
+  .right-container img {
+    left: 10px;
+  }
+
+  .left-container-arrow,
+  .right-container-arrow {
+    border-right: 15px solid #dadada;
+    border-left: 0;
+    left: 65px;
+  }
+}
+
+/* Footer */
+footer {
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+/* Flexbox container */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+/* Each column */
+.footer-column {
+  flex: 1 1 200px; /* Each column takes equal space but wraps when needed */
+  min-width: 200px; /* Prevents columns from shrinking too much */
+}
+
+.footer-column h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer-column p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #333;
+  font-weight: normal;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    justify-content: center;
+  }
+
+  .footer-column {
+    flex: 1 1 calc(50% - 2rem); /* Two columns per row */
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-column {
+    flex: 1 1 100%; /* Full-width for each column */
+    text-align: center;
+  }
+}
