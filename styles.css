@@ -113,7 +113,7 @@ main {
   align-items: center; /* Center the content horizontally */
   text-align: center;
   padding-top: 15rem; /* Adjust the top space */
-  background: url("img/abstract.webp") repeat; /* Set the background image and enable repeating */
+  /* background: url("img/tiles.svg") repeat;  Set the background image and enable repeating */
 }
 
 .arrow-container {
