@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <title>Naim El Amri - Portfolio</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -12,12 +12,21 @@
   </head>
   <body>
     <header>
-      <nav>
-        <a href="#" data-section="home">Home</a>
-        <a href="#about" data-section="about">About</a>
-        <a href="#skills" data-section="skills">Skills</a>
-        <a href="#experience" data-section="experience">Experience</a>
-      </nav>
+      <div class="header-container">
+        <div class="logo">
+          <img src="img/logo.svg" alt="Logo" />
+        </div>
+        <nav>
+          <a href="#" data-section="home">Home</a>
+          <a href="#about" data-section="about">About</a>
+          <a href="#skills" data-section="skills">Skills</a>
+          <a href="#experience" data-section="experience">Experience</a>
+        </nav>
+        <div class="language-switcher">
+          <button onclick="switchLanguage('en')">EN</button>
+          <button onclick="switchLanguage('de')">DE</button>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -265,20 +274,18 @@
         <div class="footer-column socials">
           <h3>Socials</h3>
           <p>
-            <a href="https://instagram.com/naimsphotos" target="_blank"
-              >Instagram</a
-            >
-          </p>
-          <p>
-            <a href="https://twitter.com/LuisZut12" target="_blank"
-              >Twitter (X)</a
-            >
-          </p>
-          <p>
             <a
               href="https://linkedin.com/in/naim-el-amri-fernandez"
               target="_blank"
               >LinkedIn</a
+            >
+          </p>
+          <p>
+            <a href="https://github.com/NaimElAmri" target="_blank">GitHub</a>
+          </p>
+          <p>
+            <a href="https://instagram.com/naimsphotos" target="_blank"
+              >Instagram</a
             >
           </p>
         </div>
