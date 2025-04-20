@@ -64,7 +64,7 @@ header {
 }
 
 .logo img {
-  height: 3rem;
+  height: 2.5rem;
 }
 
 nav {
@@ -177,41 +177,46 @@ main {
 
 /* About Section */
 .about {
-  padding: 2rem;
+  padding: 4rem 2rem;
+}
+
+.about h2 {
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 .about-container {
   display: flex;
-  flex-wrap: wrap; /* Allows the items to wrap if needed */
-  justify-content: center; /* Centers items when stacked */
-  align-items: center; /* Align items properly */
-  gap: 2rem; /* Adds space between image and text */
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
 }
 
 .about-image {
-  flex: 1 1 300px; /* Ensures the image has a minimum size but remains flexible */
-  display: flex;
-  justify-content: center;
+  flex: 1 1 30%;
+  max-width: 350px;
 }
 
 .about-image img {
   width: 100%;
-  max-width: 500px;
   height: auto;
-  object-fit: cover;
+  /* border: 0.5rem solid green; */
 }
 
 .about-description {
-  flex: 1 1 300px; /* Ensures text has a flexible size */
-  max-width: 600px;
-  text-align: left;
+  flex: 1 1 60%;
+}
+
+.about-description h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .about-description p {
-  max-width: 600px;
-  margin: 0 2.5rem 1rem;
-  text-align: block;
+  margin-bottom: 2rem;
 }
 
 /* Skills Section */
@@ -221,7 +226,6 @@ main {
 }
 
 .skills-intro {
-  font-size: 1.2rem;
   color: #333;
   margin-bottom: 1.5rem;
   max-width: 800px;
@@ -497,6 +501,20 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-description {
+    flex: 1 1 100%;
+  }
+
+  .about-image {
+    max-width: 80%;
+  }
+
   .footer-container {
     justify-content: center;
   }
