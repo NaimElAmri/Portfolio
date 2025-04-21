@@ -3,7 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Naim El Amri - Portfolio</title>
+    <title data-i18n="page_title">Naim El Amri - Portfolio</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XVXDZE1VRK"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-XVXDZE1VRK");
+    </script>
     <link rel="icon" href="img/logo.svg" type="image/png" />
     <link
       rel="stylesheet"
@@ -18,14 +32,14 @@
           <img src="img/logo.svg" alt="Logo" />
         </div>
         <nav>
-          <a href="#" data-section="home">Home</a>
+          <a href="#home" data-section="home">Home</a>
           <a href="#about" data-section="about">Über mich</a>
           <a href="#skills" data-section="skills">Fähigkeiten</a>
           <a href="#experience" data-section="experience">Erfahrungen</a>
         </nav>
         <div class="language-switcher">
-          <button onclick="switchLanguage('en')">EN</button>
-          <button onclick="switchLanguage('de')">DE</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="de">DE</button>
         </div>
       </div>
     </header>
@@ -33,7 +47,7 @@
     <main>
       <section id="home" class="hero">
         <h1 data-i18n="hero_title">Willkommen auf meinem Portfolio</h1>
-        <p>Creative Developer & IT Specialist</p>
+        <p data-i18n="hero_subtitle">Creative Developer & IT Specialist</p>
         <a href="#about" class="arrow-container">
           <i class="fa-solid fa-arrow-down"></i>
         </a>
@@ -49,7 +63,7 @@
           </div>
           <div class="about-description">
             <h3 data-i18n="about_greeting">Hi, Ich bin Naim! 🎋</h3>
-            <p>
+            <p data-i18n="about_description">
               Ich bin Informatiker EFZ mit Fachrichtung Applikationsentwicklung,
               begeistere mich für durchdachte Lösungen und habe ein gutes Gespür
               für funktionale wie auch visuell ansprechende Anwendungen. Ob im
@@ -59,8 +73,8 @@
               inspirieren mich, sei es beim Coden, beim Festhalten besonderer
               Momente oder beim Auspowern im Gym.
             </p>
-            <h3>Was mich begeistert ⭐️</h3>
-            <p>
+            <h3 data-i18n="about_motivation">Was mich begeistert ⭐️</h3>
+            <p data-i18n="about_motivation_text">
               Ich liebe es, digitale Ideen zum Leben zu erwecken – mit einem
               Auge fürs Detail und einem offenen Blick für neue Entwicklungen.
               Besonders spannend finde ich, wie moderne Webtechnologien und KI
@@ -78,8 +92,8 @@
       <hr class="divider" />
 
       <section id="skills" class="skills-overview">
-        <h2>Skills Overview</h2>
-        <p class="skills-intro">
+        <h2 data-i18n="skills_title">Skills Overview</h2>
+        <p class="skills-intro" data-i18n="skills_description">
           Hier ein Überblick über meine technischen Fähigkeiten. Ich habe
           praktische Erfahrung sowohl in der Frontend- als auch in der
           Backend-Entwicklung und erweitere ständig meine Wissen in neuen
@@ -88,7 +102,7 @@
         <div class="skills-container">
           <div class="skill-box">
             <i class="fa-solid fa-desktop skill-icon"></i>
-            <h3>Frontend</h3>
+            <h3 data-i18n="skills_frontend">Frontend</h3>
             <div class="skill">
               <p>HTML / CSS / JS</p>
               <div class="progress-bar"><div style="width: 90%"></div></div>
@@ -109,7 +123,7 @@
 
           <div class="skill-box">
             <i class="fa-solid fa-code skill-icon"></i>
-            <h3>Backend</h3>
+            <h3 data-i18n="skills_backend">Backend</h3>
             <div class="skill">
               <p>Python</p>
               <div class="progress-bar"><div style="width: 95%"></div></div>
@@ -130,17 +144,17 @@
 
           <div class="skill-box">
             <i class="fa-solid fa-paper-plane skill-icon"></i>
-            <h3>Arbeitsweisen</h3>
+            <h3 data-i18n="skills_methods">Arbeitsweisen</h3>
             <div class="skill">
               <p>DevOps</p>
               <div class="progress-bar"><div style="width: 90%"></div></div>
             </div>
             <div class="skill">
-              <p>Agile Development</p>
+              <p data-i18n="skills_agile">Agile Development</p>
               <div class="progress-bar"><div style="width: 85%"></div></div>
             </div>
             <div class="skill">
-              <p>Git & Version Control</p>
+              <p data-i18n="skills_git">Git & Version Control</p>
               <div class="progress-bar"><div style="width: 80%"></div></div>
             </div>
             <div class="skill">
@@ -149,10 +163,9 @@
             </div>
           </div>
 
-          <!-- Software Skill Container -->
           <div class="skill-box">
             <i class="fa-solid fa-cogs skill-icon"></i>
-            <h3>Software</h3>
+            <h3 data-i18n="skills_software">Software</h3>
             <div class="skill">
               <p>Figma</p>
               <div class="progress-bar"><div style="width: 75%"></div></div>
@@ -176,14 +189,16 @@
       <hr class="divider" />
 
       <section id="experience" class="experience">
-        <h2>Experience</h2>
+        <h2 data-i18n="experience_title">Experience</h2>
         <div class="timeline">
           <div class="timeline-container left-container">
             <img src="img/web-id.png" alt="Web-ID Logo" />
             <div class="timeline-box">
-              <h3>Mediamatiker | Web-ID</h3>
-              <small>August 2024 (1 Monat)</small>
-              <p>
+              <h3 data-i18n="experience_webid_title">Mediamatiker | Web-ID</h3>
+              <small data-i18n="experience_webid_date"
+                >August 2024 (1 Monat)</small
+              >
+              <p data-i18n="experience_webid_text">
                 Bei der Web-ID habe ich Kundenseiten mit CMS-Tools wie Typo3 und
                 WordPress angepasst und individuelle Frontend-Anpassungen
                 umgesetzt. Zudem war ich für die Betreuung der Domains
@@ -200,9 +215,13 @@
           <div class="timeline-container right-container">
             <img src="img/brocki.png" alt="Brocki Logo" />
             <div class="timeline-box">
-              <h3>Auslandsaufenthalt & Zivildienst</h3>
-              <small>März 2024 - Juli 2024 (5 Monate)</small>
-              <p>
+              <h3 data-i18n="experience_brocki_title">
+                Auslandsaufenthalt & Zivildienst
+              </h3>
+              <small data-i18n="experience_brocki_date"
+                >März 2024 - Juli 2024 (5 Monate)</small
+              >
+              <p data-i18n="experience_brocki_text">
                 Während meines Zivildienstes bei der Heilsarmee Brocki in Biel
                 war ich in der Kundenbetreuung und Warenlogistik tätig. In
                 dieser Zeit konnte ich meine Teamfähigkeit, mein
@@ -219,9 +238,13 @@
           <div class="timeline-container left-container">
             <img src="img/proalpha.png" alt="proALPHA Logo" />
             <div class="timeline-box">
-              <h3>IT Consultant | proALPHA</h3>
-              <small>November 2022 - Februar 2024 (1 Jahr, 4 Monate)</small>
-              <p>
+              <h3 data-i18n="experience_proalpha_title">
+                IT Consultant | proALPHA
+              </h3>
+              <small data-i18n="experience_proalpha_date"
+                >November 2022 - Februar 2024 (1 Jahr, 4 Monate)</small
+              >
+              <p data-i18n="experience_proalpha_text">
                 Bei proALPHA war ich als IT-Consultant tätig und beschäftigte
                 mich mit der technischen Spezifikation, Implementierung und
                 Wartung von kundenspezifischen Anpassungen im ERP-System. Ich
@@ -240,9 +263,13 @@
           <div class="timeline-container right-container">
             <img src="img/swisscom.png" alt="Swisscom Logo" />
             <div class="timeline-box">
-              <h3>DevOps Engineer | Swisscom</h3>
-              <small>August 2021 - Juli 2022 (1 Jahr)</small>
-              <p>
+              <h3 data-i18n="experience_swisscom_title">
+                DevOps Engineer | Swisscom
+              </h3>
+              <small data-i18n="experience_swisscom_date"
+                >August 2021 - Juli 2022 (1 Jahr)</small
+              >
+              <p data-i18n="experience_swisscom_text">
                 Während meines Praktikums bei Swisscom lag mein Fokus auf der
                 Automatisierung von Prozessen. Ich entwickelte Skripte in
                 Python, arbeitete mit Automic und unterstützte die Wartung sowie
@@ -263,7 +290,7 @@
     <footer>
       <div class="footer-container">
         <div class="footer-column contact">
-          <h3>Contact</h3>
+          <h3 data-i18n="footer_contact_title">Contact</h3>
           <p>Naim El Amri Fernandez</p>
           <p>
             <a href="mailto:naimelamri@outlook.com">naimelamri@outlook.com</a>
@@ -271,7 +298,7 @@
           <p>+41 78 932 54 53</p>
         </div>
         <div class="footer-column socials">
-          <h3>Socials</h3>
+          <h3 data-i18n="footer_socials_title">Socials</h3>
           <p>
             <a
               href="https://linkedin.com/in/naim-el-amri-fernandez"
@@ -289,17 +316,23 @@
           </p>
         </div>
         <div class="footer-column sitemap">
-          <h3>Navigation</h3>
-          <p><a href="#about">About</a></p>
-          <p><a href="#skills">Skills</a></p>
-          <p><a href="#experience">Experience</a></p>
+          <h3 data-i18n="footer_navigation_title">Navigation</h3>
+          <p><a href="#about" data-i18n="footer_nav_about">About</a></p>
+          <p><a href="#skills" data-i18n="footer_nav_skills">Skills</a></p>
+          <p>
+            <a href="#experience" data-i18n="footer_nav_experience"
+              >Experience</a
+            >
+          </p>
         </div>
         <div class="footer-column copyright">
-          <h3>Legal</h3>
+          <h3 data-i18n="footer_legal_title">Legal</h3>
           <p>
-            <a href="impressum.html">Impressum & Datenschutz</a>
+            <a href="impressum.html" data-i18n="footer_legal_impressum"
+              >Impressum & Datenschutz</a
+            >
           </p>
-          <p>&copy; 2025 Naim El Amri Fernandez</p>
+          <p data-i18n="footer_copyright">&copy; 2025 Naim El Amri Fernandez</p>
         </div>
       </div>
     </footer>
