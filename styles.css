@@ -457,46 +457,26 @@ main {
 
 /* Footer */
 footer {
-  padding: 4rem 2rem;
+  padding: 2rem 0;
   text-align: center;
   border-top: 1px solid #ddd;
 }
 
-/* Flexbox container */
-.footer-container {
+.social-icons {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: center;
   gap: 2rem;
-}
-
-/* Each column */
-.footer-column {
-  flex: 1 1 200px; /* Each column takes equal space but wraps when needed */
-  min-width: 200px; /* Prevents columns from shrinking too much */
-}
-
-.footer-column h3 {
-  font-size: 1.25rem;
-  font-weight: bold;
   margin-bottom: 1rem;
 }
 
-.footer-column p {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.footer-column a {
-  text-decoration: none;
+.social-icons a {
   color: #333;
-  font-weight: normal;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-.footer-column a:hover {
-  text-decoration: underline;
+.social-icons a:hover {
+  color: green;
 }
 
 /* Responsive Design */
@@ -513,21 +493,5 @@ footer {
 
   .about-image {
     max-width: 80%;
-  }
-
-  .footer-container {
-    justify-content: center;
-  }
-
-  .footer-column {
-    flex: 1 1 calc(50% - 2rem); /* Two columns per row */
-    text-align: center;
-  }
-}
-
-@media (max-width: 600px) {
-  .footer-column {
-    flex: 1 1 100%; /* Full-width for each column */
-    text-align: center;
   }
 }
