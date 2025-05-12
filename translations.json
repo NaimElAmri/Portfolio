@@ -32,16 +32,7 @@
     "experience_proalpha_text": "Bei proALPHA war ich als IT-Consultant tätig und beschäftigte mich mit der technischen Spezifikation, Implementierung und Wartung von kundenspezifischen Anpassungen im ERP-System. Ich analysierte Fehler, entwickelte individuelle Lösungen und stellte sicher, dass Kundenanforderungen effizient umgesetzt wurden. Dabei konnte ich meine analytischen Fähigkeiten und mein technisches Verständnis weiterentwickeln. Durch meine strukturierte und lösungsorientierte Arbeitsweise stellte ich eine hohe Qualität sicher und arbeitete eng mit Kunden sowie internen Teams zusammen.",
     "experience_swisscom_title": "DevOps Engineer | Swisscom",
     "experience_swisscom_date": "August 2021 - Juli 2022 (1 Jahr)",
-    "experience_swisscom_text": "Während meines Praktikums bei Swisscom lag mein Fokus auf der Automatisierung von Prozessen. Ich entwickelte Skripte in Python, arbeitete mit Automic und unterstützte die Wartung sowie Verwaltung von Automatisierungsprozessen. Durch meine Tätigkeit in einem agilen Umfeld nach SAFe konnte ich wertvolle Erfahrungen im Bereich Prozessoptimierung und moderne Arbeitsmethoden sammeln. Besonders spannend fand ich die Möglichkeit, eigenständig Lösungen zu entwickeln und mich intensiv mit aktuellen Technologien auseinanderzusetzen.",
-    "footer_contact_title": "Kontakt",
-    "footer_socials_title": "Socials",
-    "footer_navigation_title": "Navigation",
-    "footer_nav_about": "Über mich",
-    "footer_nav_skills": "Fähigkeiten",
-    "footer_nav_experience": "Erfahrung",
-    "footer_legal_title": "Rechtliches",
-    "footer_legal_impressum": "Impressum & Datenschutz",
-    "footer_copyright": "&copy; 2025 Naim El Amri Fernandez"
+    "experience_swisscom_text": "Während meines Praktikums bei Swisscom lag mein Fokus auf der Automatisierung von Prozessen. Ich entwickelte Skripte in Python, arbeitete mit Automic und unterstützte die Wartung sowie Verwaltung von Automatisierungsprozessen. Durch meine Tätigkeit in einem agilen Umfeld nach SAFe konnte ich wertvolle Erfahrungen im Bereich Prozessoptimierung und moderne Arbeitsmethoden sammeln. Besonders spannend fand ich die Möglichkeit, eigenständig Lösungen zu entwickeln und mich intensiv mit aktuellen Technologien auseinanderzusetzen."
   },
   "en": {
     "page_title": "Naim El Amri - Portfolio",
@@ -49,8 +40,8 @@
     "about": "About",
     "skills": "Skills",
     "experience": "Experience",
-    "hero_title": "Welcome to my Portfolio",
-    "hero_subtitle": "Creative Developer & IT Specialist",
+    "hero_title": "Naim El Amri Fernandez",
+    "hero_subtitle": "Developer by Craft. Creator by Nature.",
     "about_title": "About Me",
     "about_greeting": "Hello, I'm Naim! 🎋",
     "about_description": "I am a developer with a Swiss Certificate of Competence specialized in application development. I’m passionate about well-designed solutions and have a strong sense for creating both functional and visually appealing applications. Whether it’s frontend or backend, I quickly get up to speed with new topics and enjoy contributing my strength in systems thinking within a team. I’m inspired by technology, photography, and some movement—whether I’m coding, capturing unique moments, or working out at the gym.",
@@ -76,15 +67,6 @@
     "experience_proalpha_text": "At proALPHA, I worked as an IT consultant and dealt with the technical specification, implementation and maintenance of customer-specific adaptations in the ERP system. I analyzed errors, developed individual solutions and ensured that customer requirements were implemented efficiently. In doing so, I was able to further develop my analytical skills and my technical understanding. Thanks to my structured and solution-oriented way of working, I ensured high quality and worked closely with customers and internal teams.",
     "experience_swisscom_title": "DevOps Engineer | Swisscom",
     "experience_swisscom_date": "August 2021 - July 2022 (1 Year)",
-    "experience_swisscom_text": "During my internship at Swisscom, my focus was on the automation of processes. I developed scripts in Python, worked with Automic and supported the maintenance and management of automation processes. By working in an agile environment according to SAFe, I was able to gain valuable experience in process optimization and modern working methods. I found the opportunity to develop solutions independently and deal intensively with current technologies particularly exciting.",
-    "footer_contact_title": "Contact",
-    "footer_socials_title": "Socials",
-    "footer_navigation_title": "Navigation",
-    "footer_nav_about": "About",
-    "footer_nav_skills": "Skills",
-    "footer_nav_experience": "Experience",
-    "footer_legal_title": "Legal",
-    "footer_legal_impressum": "Impressum & Privacy Policy",
-    "footer_copyright": "&copy; 2025 Naim El Amri Fernandez"
+    "experience_swisscom_text": "During my internship at Swisscom, my focus was on the automation of processes. I developed scripts in Python, worked with Automic and supported the maintenance and management of automation processes. By working in an agile environment according to SAFe, I was able to gain valuable experience in process optimization and modern working methods. I found the opportunity to develop solutions independently and deal intensively with current technologies particularly exciting."
   }
 }

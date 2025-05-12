@@ -31,15 +31,15 @@
         <div class="logo">
           <img src="img/logo.svg" alt="Logo" />
         </div>
-        <nav>
+        <nav aria-label="Main navigation">
           <a href="#home" data-section="home">Home</a>
           <a href="#about" data-section="about">Über mich</a>
           <a href="#skills" data-section="skills">Fähigkeiten</a>
           <a href="#experience" data-section="experience">Erfahrungen</a>
         </nav>
         <div class="language-switcher">
-          <button data-lang="en">EN</button>
           <button data-lang="de">DE</button>
+          <button data-lang="en">EN</button>
         </div>
       </div>
     </header>
@@ -91,6 +91,84 @@
 
       <hr class="divider" />
 
+      <section id="projects" class="projects">
+        <h2 data-i18n="projects_title">Projekte</h2>
+        <p class="projects-intro" data-i18n="projects_description">
+          Eine Auswahl an Projekten aus den Bereichen IT und Multimedia, bei
+          denen ich mein technisches Know-how und meine kreative Ader einbringen
+          konnte.
+        </p>
+        <div class="projects-container">
+          <!-- Projekt 1: AVE -->
+          <div class="project-card">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/nBOQuyB0W94"
+                title="Robin Luijten – Freiheit auf Rollen"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="project-info">
+              <h3>Interview-Porträt: Skater mit Leidenschaft</h3>
+              <p>
+                Ein Filmisches Porträt das sich über meinen Bruder und seine
+                Leidenschaft fürs Skaten handelt. Konzept, Kamera, Ton und
+                Schnitt zusammen mit Robin Luijten, Ali Tas und Nathalie Tschanz
+                realisiert.
+              </p>
+              <a
+                href="https://naimelamri.ch/files/Konzept_Portraitvideo.pdf"
+                target="_blank"
+                class="project-link"
+                >Zum Konzept</a
+              >
+            </div>
+          </div>
+
+          <!-- Projekt 1: IM -->
+          <div class="project-card">
+            <img src="img/cover_zenway.jpg" alt="Projekt Screenshot IT" />
+            <div class="project-info">
+              <h3>Webauftrit für imaginäres Startup ZenWay</h3>
+              <p>
+                Eine minimalistische Corporate-Website, die ich von Grund auf
+                mit HTML und CSS umgesetzt habe – mit Fokus auf klare Struktur,
+                moderne Typografie und responsive Gestaltung.
+              </p>
+              <a
+                href="https://naimfhgr.github.io/ZenWay/"
+                target="_blank"
+                class="project-link"
+                >Zur Website</a
+              >
+            </div>
+          </div>
+
+          <!-- Projekt 3: Insta -->
+          <div class="project-card">
+            <img src="img/cover_instagram.jpg" alt="Webprojekt Screenshot" />
+            <div class="project-info">
+              <h3>Mein persönliches Instagram Portfolio</h3>
+              <p>
+                Auf Instagram zeige ich meine Vorliebe für die Fotografie und
+                Storytelling in Form von ästhetischen Bildern und kurzen Reels.
+                Mein Ausstellungstisch im Internet, auf dem ich zeige, was mich
+                kreativ antreibt.
+              </p>
+              <a
+                href="https://www.instagram.com/naimsphotos/"
+                target="_blank"
+                class="project-link"
+                >Auf Instagram ansehen</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
       <section id="skills" class="skills-overview">
         <h2 data-i18n="skills_title">Skills Overview</h2>
         <p class="skills-intro" data-i18n="skills_description">
@@ -112,11 +190,11 @@
               <div class="progress-bar"><div style="width: 80%"></div></div>
             </div>
             <div class="skill">
-              <p>React</p>
+              <p>Typo3 / WordPress</p>
               <div class="progress-bar"><div style="width: 50%"></div></div>
             </div>
             <div class="skill">
-              <p>Typo3 / WordPress</p>
+              <p>React</p>
               <div class="progress-bar"><div style="width: 40%"></div></div>
             </div>
           </div>
@@ -167,20 +245,20 @@
             <i class="fa-solid fa-cogs skill-icon"></i>
             <h3 data-i18n="skills_software">Software</h3>
             <div class="skill">
-              <p>Figma</p>
+              <p>Adobe Suite (Ps, Pr, Lr, Ae, Ai, Id)</p>
               <div class="progress-bar"><div style="width: 75%"></div></div>
             </div>
             <div class="skill">
-              <p>Photoshop</p>
+              <p>Figma</p>
               <div class="progress-bar"><div style="width: 70%"></div></div>
             </div>
             <div class="skill">
-              <p>Docker</p>
-              <div class="progress-bar"><div style="width: 65%"></div></div>
+              <p>MS Office</p>
+              <div class="progress-bar"><div style="width: 90%"></div></div>
             </div>
             <div class="skill">
-              <p>CI/CD</p>
-              <div class="progress-bar"><div style="width: 80%"></div></div>
+              <p>Jira / Confluence</p>
+              <div class="progress-bar"><div style="width: 65%"></div></div>
             </div>
           </div>
         </div>
