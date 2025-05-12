@@ -300,7 +300,7 @@ main {
 /* Skills Section */
 .skills-overview {
   text-align: center;
-  padding: 2rem;
+  padding: 4rem 2rem;
 }
 
 .skills-intro {
@@ -370,7 +370,7 @@ main {
 /* Experience Section */
 .experience {
   text-align: center;
-  padding: 2rem;
+  padding: 4rem 2rem;
 }
 
 .timeline {
@@ -527,7 +527,7 @@ main {
 
   .left-container-arrow,
   .right-container-arrow {
-    border-right: 15px solid #dadada;
+    border-right: 15px solid white;
     border-left: 0;
     left: 65px;
   }
