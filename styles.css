@@ -46,7 +46,7 @@ h3 {
   scroll-margin-top: 4rem; /* Adjust this value as needed */
 }
 
-/* Sticky Navigation */
+/* Sticky Header */
 header {
   position: sticky;
   top: 0;
@@ -67,12 +67,16 @@ header {
   height: 2.5rem;
 }
 
-nav {
+/* Navigation Styles */
+.main-nav ul {
   display: flex;
   gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-nav a {
+.main-nav ul li a {
   position: relative;
   text-decoration: none;
   color: #333;
@@ -81,7 +85,7 @@ nav a {
   transition: color 0.3s ease-in-out;
 }
 
-nav a::after {
+.main-nav ul li a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -93,10 +97,11 @@ nav a::after {
   transition: transform 0.3s ease-in-out;
 }
 
-nav a.active::after {
+.main-nav ul li a.active::after {
   transform: scaleX(1);
 }
 
+/* Language Switcher */
 .language-switcher button {
   background: none;
   border: 1px solid #ccc;
