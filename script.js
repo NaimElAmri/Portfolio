@@ -126,4 +126,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === INITIALIZATION ===
   fetchTranslations(); // Load translations and apply initial language
+
+  // Function to close the menu when a link is clicked
+  function closeMenu() {
+    document.getElementById("nav-toggle").checked = false;
+  }
+
+  // Add the closeMenu function to each link
+  navLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  langButtons.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
 });

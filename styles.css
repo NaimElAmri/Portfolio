@@ -65,9 +65,16 @@ header {
 
 .logo img {
   height: 2.5rem;
+  margin-right: auto;
 }
 
-/* Navigation Styles */
+/* Navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .main-nav ul {
   display: flex;
   gap: 2rem;
@@ -119,6 +126,102 @@ header {
 .language-switcher button.active {
   font-weight: bold;
   text-decoration: underline;
+}
+
+/* Basic Reset */
+.nav-toggle {
+  display: none;
+}
+
+/* Burger Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 1101;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 750px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #333;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1100;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .main-nav ul li a {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  .language-switcher {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .language-switcher button {
+    color: white;
+    border-color: white;
+  }
+
+  /* Toggle menu open */
+  .nav-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+    background-color: #fff;
+  }
+
+  .nav-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+    background-color: #fff;
+  }
+
+  .nav-toggle:checked ~ .main-nav {
+    transform: translateX(0);
+  }
+
+  .main-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
 }
 
 /* Main Layout */
@@ -501,6 +604,10 @@ main {
 }
 
 @media screen and (max-width: 600px) {
+  h1 {
+    font-size: 3rem;
+  }
+
   .timeline {
     margin: 50px auto;
   }
@@ -510,12 +617,16 @@ main {
   }
 
   .timeline-container {
-    width: 100%;
-    padding: 0 25px 0 80px;
+    width: 110%;
+    padding: 0 5px 0 80px;
+  }
+
+  .timeline-box h3 {
+    font-size: 20px;
   }
 
   .timeline-box {
-    font-size: 13px;
+    font-size: 14px;
   }
   .timeline-box small {
     margin-bottom: 10px;

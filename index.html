@@ -31,21 +31,37 @@
         <div class="logo">
           <img src="img/logo.svg" alt="Logo" />
         </div>
+
+        <!-- Hidden Checkbox -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+        <!-- Burger Icon -->
+        <label for="nav-toggle" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <!-- Fullscreen Navigation -->
         <nav class="main-nav" aria-label="Main navigation">
-          <ul>
-            <li><a href="#" data-section="home">Home</a></li>
-            <li><a href="#about" data-section="about">Über mich</a></li>
-            <li><a href="#projects" data-section="projects">Projekte</a></li>
-            <li><a href="#skills" data-section="skills">Fähigkeiten</a></li>
-            <li>
-              <a href="#experience" data-section="experience">Erfahrungen</a>
-            </li>
-          </ul>
+          <div class="nav-links">
+            <ul>
+              <li>
+                <a href="#" data-section="home">Home</a>
+              </li>
+              <li><a href="#about" data-section="about">Über mich</a></li>
+              <li><a href="#projects" data-section="projects">Projekte</a></li>
+              <li><a href="#skills" data-section="skills">Fähigkeiten</a></li>
+              <li>
+                <a href="#experience" data-section="experience">Erfahrungen</a>
+              </li>
+            </ul>
+          </div>
+          <div class="language-switcher">
+            <button data-lang="de">DE</button>
+            <button data-lang="en">EN</button>
+          </div>
         </nav>
-        <div class="language-switcher">
-          <button data-lang="de">DE</button>
-          <button data-lang="en">EN</button>
-        </div>
       </div>
     </header>
 
