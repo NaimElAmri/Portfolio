@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 882.22 190.43">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #4d4d4d;
+        font-size: 65px;
+      }
+
+      .cls-2 {
+        letter-spacing: .11em;
+      }
+
+      .cls-2, .cls-3 {
+        font-family: Lato-Regular, Lato;
+      }
+
+      .cls-4 {
+        letter-spacing: .07em;
+      }
+
+      .cls-4, .cls-5 {
+        font-family: Lato-Black, Lato;
+        font-weight: 800;
+      }
+
+      .cls-6 {
+        stroke: #8cc63f;
+      }
+
+      .cls-6, .cls-7, .cls-8 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 33px;
+      }
+
+      .cls-7 {
+        stroke: #009245;
+      }
+
+      .cls-3, .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        stroke: #39b54a;
+      }
+    </style>
+  </defs>
+  <path class="cls-6" d="M16.68,95.3c3.54-.38,36.41-3.29,59.79,22.95,20.26,22.74,18.33,50.48,17.94,55.09"/>
+  <path class="cls-8" d="M263.08,94.23c-3.54-.38-36.41-3.29-59.79,22.95-20.26,22.74-18.33,50.48-17.94,55.09"/>
+  <path class="cls-6" d="M185.22,16.5c-.38,3.54-3.29,36.41,22.95,59.79,22.74,20.26,50.48,18.33,55.09,17.94"/>
+  <path class="cls-8" d="M94.55,17.57c.38,3.54,3.29,36.41-22.95,59.79-22.74,20.26-50.48,18.33-55.09,17.94"/>
+  <line class="cls-7" x1="94.41" y1="173.93" x2="185.22" y2="17.08"/>
+  <g>
+    <text class="cls-1" transform="translate(326.23 82.76)"><tspan class="cls-5" x="0" y="0">NAIM</tspan><tspan class="cls-4" x="176.54" y="0"> </tspan><tspan class="cls-3" x="193.63" y="0">EL AMRI</tspan></text>
+    <text class="cls-2" transform="translate(324.23 156.15)"><tspan x="0" y="0">FERNANDEZ</tspan></text>
+  </g>
+</svg>
