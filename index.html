@@ -42,13 +42,11 @@
           <span></span>
         </label>
 
-        <!-- Fullscreen Navigation -->
+        <!-- Navigation Links -->
         <nav class="main-nav" aria-label="Main navigation">
           <div class="nav-links">
             <ul>
-              <li>
-                <a href="#" data-section="home">Home</a>
-              </li>
+              <li><a href="#" data-section="home">Home</a></li>
               <li><a href="#about" data-section="about">Über mich</a></li>
               <li><a href="#projects" data-section="projects">Projekte</a></li>
               <li><a href="#skills" data-section="skills">Fähigkeiten</a></li>
@@ -57,18 +55,26 @@
               </li>
             </ul>
           </div>
-          <div class="language-switcher">
+
+          <!-- Language Switcher for Mobile -->
+          <div class="language-switcher mobile-only">
             <button data-lang="de">DE</button>
             <button data-lang="en">EN</button>
           </div>
         </nav>
+
+        <!-- Language Switcher for Desktop -->
+        <div class="language-switcher desktop-only">
+          <button data-lang="de">DE</button>
+          <button data-lang="en">EN</button>
+        </div>
       </div>
     </header>
 
     <main>
       <section id="home" class="hero">
-        <h1 data-i18n="hero_title">Willkommen auf meinem Portfolio</h1>
-        <p data-i18n="hero_subtitle">Creative Developer & IT Specialist</p>
+        <h1 data-i18n="hero_title">Naim El Amri Fernandez</h1>
+        <p data-i18n="hero_subtitle">Developer by Craft. Creator by Nature.</p>
         <a href="#about" class="arrow-container">
           <i class="fa-solid fa-arrow-down"></i>
         </a>
