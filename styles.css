@@ -41,6 +41,7 @@ h3 {
 }
 
 #about,
+#projects,
 #skills,
 #experience {
   scroll-margin-top: 4rem; /* Adjust this value as needed */
