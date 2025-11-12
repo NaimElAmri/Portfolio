@@ -1,5 +1,4 @@
 /* Import Lato Font */
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
 html {
@@ -344,7 +343,6 @@ main {
 .about-image img {
   width: 100%;
   height: auto;
-  /* border: 0.5rem solid green; */
 }
 
 .about-description {
