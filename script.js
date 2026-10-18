@@ -27,6 +27,33 @@ if (header) {
   window.addEventListener("scroll", onScroll, { passive: true });
 }
 
+// Aktuellen Abschnitt in der Navigation markieren
+const navLinks = [...document.querySelectorAll('.main-nav a[href^="#"]')];
+const navSections = navLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+if (navSections.length) {
+  const markCurrent = () => {
+    const line = window.innerHeight * 0.35;
+    let current = null;
+    navSections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= line) current = section;
+    });
+    // Ganz unten zählt der letzte Abschnitt, auch wenn er kurz ist
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      current = navSections[navSections.length - 1];
+    }
+    navLinks.forEach((link) => {
+      const active = current && link.getAttribute("href") === `#${current.id}`;
+      if (active) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    });
+  };
+  markCurrent();
+  window.addEventListener("scroll", markCurrent, { passive: true });
+  window.addEventListener("resize", markCurrent);
+}
+
 // Dezente Einblend-Animation beim Scrollen
 const revealItems = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {

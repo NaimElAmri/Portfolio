@@ -161,6 +161,25 @@ a {
 .main-nav a[aria-current] {
   color: var(--ink);
 }
+/* Unterstrich beim Abschnitt, in dem man gerade ist */
+.main-nav a:not(.nav-photo) {
+  position: relative;
+}
+.main-nav a:not(.nav-photo)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1.5px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.main-nav a[aria-current]::after {
+  transform: scaleX(1);
+}
 .main-nav .nav-photo {
   color: var(--ink);
   border: 1px solid var(--line);
@@ -224,6 +243,9 @@ a {
     padding: 10px 0;
     font-size: 18px;
   }
+  .main-nav a:not(.nav-photo)::after {
+    bottom: 6px;
+  }
   .main-nav .nav-photo {
     margin-top: 8px;
     padding: 9px 16px;
@@ -258,9 +280,6 @@ a {
 .section {
   padding-block: clamp(72px, 11vw, 132px);
 }
-.section + .section {
-  border-top: 1px solid var(--line);
-}
 .section-head {
   margin-bottom: clamp(36px, 5vw, 56px);
 }
@@ -268,6 +287,16 @@ a {
 /* ---------- Hero ---------- */
 .hero {
   padding-block: clamp(72px, 13vw, 160px) clamp(64px, 9vw, 112px);
+}
+@media (max-width: 760px) {
+  /* Mobil füllt der Hero den ersten Bildschirm */
+  .hero {
+    min-height: calc(100svh - var(--header-h));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 48px 64px;
+  }
 }
 .hero h1 {
   font: 400 clamp(42px, 7vw, 92px) / 1.04 var(--font-display);
@@ -314,6 +343,12 @@ a {
 .btn svg {
   width: 16px;
   height: 16px;
+}
+.btn svg {
+  transition: transform 0.2s ease;
+}
+.btn-scroll:hover svg {
+  transform: translateY(3px);
 }
 
 /* ---------- Über mich ---------- */
