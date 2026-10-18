@@ -11,7 +11,8 @@ Persönliches Portfolio für Bewerbungen im Bereich Multimedia (Video, Fotografi
 ## Fotos hinzufügen
 
 1. Bild als JPG exportieren (lange Seite ca. 2000–2500 px) und in `img/fotografie/` ablegen.
-2. In `gallery.js` einen Eintrag in `PHOTOS` ergänzen (Pfad, Breite, Höhe, Bildbeschreibung, Bildunterschrift).
+2. Eine grosse (2000 px) und eine kleine (900 px) WebP-Version erstellen.
+3. In `gallery.js` einen Eintrag in `PHOTOS` ergänzen (Pfade, Breite, Höhe, Bildbeschreibung, optional Bildunterschrift).
 
 ## Lokal ansehen
 
