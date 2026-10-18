@@ -51,7 +51,17 @@ document.querySelectorAll(".video[data-youtube]").forEach((video) => {
   const button = video.querySelector(".video-play");
   const thumb = button && button.querySelector("img");
   if (thumb) {
-    thumb.addEventListener("error", () => thumb.remove());
+    // Nicht jedes Video hat ein Vorschaubild in voller Auflösung:
+    // dann auf die kleinere Version wechseln, sonst bleibt der Farbverlauf.
+    const fallback = `https://i.ytimg.com/vi/${video.dataset.youtube}/hqdefault.jpg`;
+    const useFallback = () => {
+      if (thumb.src !== fallback) thumb.src = fallback;
+      else thumb.remove();
+    };
+    thumb.addEventListener("error", useFallback);
+    thumb.addEventListener("load", () => {
+      if (thumb.naturalWidth <= 120) useFallback();
+    });
   }
   if (!button) return;
   button.addEventListener("click", () => {

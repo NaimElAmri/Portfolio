@@ -476,6 +476,7 @@ a {
 /* YouTube: Vorschaubild, Video lädt erst beim Klick */
 .video {
   position: relative;
+  overflow: hidden;
   aspect-ratio: 16 / 9;
   background: linear-gradient(135deg, #c9dcdc, #8fb1b4);
 }
@@ -542,31 +543,35 @@ a {
 
 /* Instagram-Karten */
 .social-cover {
+  display: block;
   aspect-ratio: 16 / 9;
-  display: grid;
-  place-items: center;
-  text-decoration: none;
   position: relative;
   overflow: hidden;
-}
-.social-cover span {
-  font: italic 400 clamp(28px, 3.8vw, 42px) / 1 var(--font-display);
-  position: relative;
-}
-.social-cover.tone-1 {
   background: var(--accent-soft);
-  color: var(--accent);
+  color: #fff;
+  text-decoration: none;
 }
-.social-cover.tone-2 {
-  background: var(--ink);
-  color: var(--bg);
+.social-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
 }
-.social-cover::before {
+.social-cover::after {
   content: "";
   position: absolute;
-  inset: 18px;
-  border: 1px solid currentColor;
-  opacity: 0.25;
+  inset: 0;
+  background: linear-gradient(to top, rgba(20, 34, 41, 0.4), rgba(20, 34, 41, 0) 50%);
+}
+.social-handle {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  z-index: 1;
+  font: italic 400 clamp(22px, 2.6vw, 28px) / 1 var(--font-display);
+}
+.social-cover:hover img {
+  transform: scale(1.03);
 }
 
 @media (max-width: 760px) {
@@ -972,7 +977,6 @@ a {
   border-radius: var(--radius);
 }
 .tools span,
-.lightbox img,
-.social-cover::before {
+.lightbox img {
   border-radius: var(--radius-sm);
 }
