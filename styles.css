@@ -38,6 +38,8 @@
   --wrap: 1120px;
   --gutter: clamp(20px, 5vw, 48px);
   --header-h: 72px;
+  --radius: 8px;
+  --radius-sm: 5px;
 }
 
 *,
@@ -934,4 +936,21 @@ a {
   margin-top: 0;
   border-top: 0;
   padding-top: 0;
+}
+
+/* Ecken: leicht gerundet. Eckig bleiben bewusst die Hero-Buttons,
+   die Projektkarten und der Fotografie-Button in der Navigation. */
+.skip-link,
+.about-photo img,
+.gallery-item button,
+.gallery-item.placeholder .ph,
+.video-play .play-icon i,
+.social a,
+.lb-btn {
+  border-radius: var(--radius);
+}
+.tools span,
+.lightbox img,
+.social-cover::before {
+  border-radius: var(--radius-sm);
 }
