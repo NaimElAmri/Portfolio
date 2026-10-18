@@ -1,26 +1,22 @@
-# Portfolio Website
+# Portfolio Naim El Amri Fernandez
 
-A personal portfolio website built with HTML, CSS, and vanilla JavaScript, designed to present my work and personality with a clean, modern aesthetic.
+Persönliches Portfolio für Bewerbungen im Bereich Multimedia (Video, Fotografie, Social Media und Storytelling). Statische Website mit HTML, CSS und JavaScript, gehostet auf GitHub Pages.
 
-## Features
+## Seiten
 
-The site features different sections for smooth navigation:
+- `index.html`: Onepager mit Über mich, Projekten, Skills und Werdegang
+- `fotografie.html`: Galerie mit ausgewählten Fotos
+- `datenschutz.html`: Datenschutzerklärung
 
-- [Home](#home) – Intro section with title and subtitle
-- [Über mich](#about) – Personal introduction and background
-- [Projekte](#projects) – Showcase of selected projects
-- [Fähigkeiten](#skills) – Overview of technical skills
-- [Erfahrungen](#experience) – Timeline of professional experience
+## Fotos hinzufügen
 
-Additional features include:
+1. Bild als JPG exportieren (lange Seite ca. 2000–2500 px) und in `img/fotografie/` ablegen.
+2. In `gallery.js` einen Eintrag in `PHOTOS` ergänzen (Pfad, Breite, Höhe, Bildbeschreibung, Bildunterschrift).
 
-- Responsive design for all devices
-- Burger menu for mobile navigation
-- Language switcher (DE/EN)
-- Minimalist and modern layout
+## Lokal ansehen
 
-## Technologies Used
+```
+python3 -m http.server
+```
 
-- HTML5
-- CSS3
-- JavaScript (vanilla)
+Danach http://localhost:8000 öffnen.

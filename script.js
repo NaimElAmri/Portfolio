@@ -1,143 +1,69 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav a");
-  const langButtons = document.querySelectorAll(".language-switcher button");
+// Navigation (mobil)
+const navToggle = document.querySelector(".nav-toggle");
+const mainNav = document.querySelector(".main-nav");
 
-  let allTranslations = {}; // Variable to store loaded translations
+if (navToggle && mainNav) {
+  const setOpen = (open) => {
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.setAttribute("aria-label", open ? "Menü schliessen" : "Menü öffnen");
+    mainNav.classList.toggle("is-open", open);
+  };
+  navToggle.addEventListener("click", () => {
+    setOpen(navToggle.getAttribute("aria-expanded") !== "true");
+  });
+  mainNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+}
 
-  // === FUNCTION TO FETCH TRANSLATIONS ===
-  async function fetchTranslations() {
-    try {
-      const response = await fetch("translations.json"); // Make sure path is correct
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      allTranslations = await response.json();
-      console.log("Translations loaded successfully.");
-      // Apply initial language after translations are loaded
-      const savedLang = localStorage.getItem("preferredLang") || "de"; // Default to 'de'
-      switchLanguage(savedLang);
-    } catch (error) {
-      console.error("Could not load translations:", error);
-      // Optionally handle the error, e.g., display a message to the user
-    }
-  }
+// Linie unter dem Header, sobald gescrollt wird
+const header = document.querySelector(".site-header");
+if (header) {
+  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
 
-  // === FUNCTION TO APPLY TRANSLATIONS ===
-  function applyTranslations(lang) {
-    if (!allTranslations[lang]) {
-      console.error(`Translations for language '${lang}' not found.`);
-      return; // Exit if the language data isn't loaded
-    }
-
-    const translations = allTranslations[lang];
-
-    // Update elements with data-i18n attribute
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      if (translations[key]) {
-        // Use innerHTML if your translations might contain HTML entities like &copy;
-        el.innerHTML = translations[key];
-      } else {
-        console.warn(
-          `Translation key "${key}" not found for language "${lang}".`
-        );
-      }
-    });
-
-    // Update nav links based on their data-section attribute
-    document.querySelectorAll("nav a[data-section]").forEach((link) => {
-      const section = link.getAttribute("data-section");
-      if (translations[section]) {
-        link.textContent = translations[section];
-      } else {
-        console.warn(
-          `Nav translation key "${section}" not found for language "${lang}".`
-        );
-      }
-    });
-
-    // Update footer nav links based on their data-i18n attribute (if specific keys are used)
-    // Example - adjust if you use href or other method:
-    document.querySelectorAll("footer a[data-i18n]").forEach((link) => {
-      const key = link.getAttribute("data-i18n");
-      if (translations[key]) {
-        link.textContent = translations[key];
-      } else {
-        console.warn(
-          `Footer nav translation key "${key}" not found for language "${lang}".`
-        );
-      }
-    });
-
-    // Update page title (if you added data-i18n to it)
-    const pageTitle = document.querySelector("title[data-i18n]");
-    if (pageTitle) {
-      const key = pageTitle.getAttribute("data-i18n");
-      if (translations[key]) {
-        document.title = translations[key];
-      }
-    }
-
-    // Set active button
-    langButtons.forEach((btn) => {
-      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
-    });
-
-    // Update the lang attribute of the <html> element
-    document.documentElement.lang = lang;
-  }
-
-  // === LANGUAGE SWITCH FUNCTION ===
-  function switchLanguage(lang) {
-    localStorage.setItem("preferredLang", lang); // Save preference
-    applyTranslations(lang);
-  }
-
-  // === SECTION HIGHLIGHTING LOGIC ===
+// Dezente Einblend-Animation beim Scrollen
+const revealItems = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const sectionId = entry.target.id;
-          navLinks.forEach((link) => {
-            // Remove active class from all links first
-            link.classList.remove("active");
-            // Add active class if data-section matches the intersecting section's id
-            if (link.getAttribute("data-section") === sectionId) {
-              link.classList.add("active");
-            }
-          });
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.3 } // Adjust threshold as needed
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.1 }
   );
+  revealItems.forEach((el) => observer.observe(el));
+} else {
+  revealItems.forEach((el) => el.classList.add("is-visible"));
+}
 
-  sections.forEach((section) => observer.observe(section));
-
-  // === LANGUAGE SWITCHER EVENT LISTENERS ===
-  langButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const selectedLang = button.getAttribute("data-lang");
-      switchLanguage(selectedLang);
-    });
-  });
-
-  // === INITIALIZATION ===
-  fetchTranslations(); // Load translations and apply initial language
-
-  // Function to close the menu when a link is clicked
-  function closeMenu() {
-    document.getElementById("nav-toggle").checked = false;
+// YouTube erst beim Klick laden (schneller und datenschutzfreundlicher)
+document.querySelectorAll(".video[data-youtube]").forEach((video) => {
+  const button = video.querySelector(".video-play");
+  const thumb = button && button.querySelector("img");
+  if (thumb) {
+    thumb.addEventListener("error", () => thumb.remove());
   }
-
-  // Add the closeMenu function to each link
-  navLinks.forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-
-  langButtons.forEach((link) => {
-    link.addEventListener("click", closeMenu);
+  if (!button) return;
+  button.addEventListener("click", () => {
+    const id = video.dataset.youtube;
+    const list = video.dataset.list;
+    const params = new URLSearchParams({ autoplay: "1", rel: "0" });
+    if (list) params.set("list", list);
+    const iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?${params}`;
+    iframe.title = button.getAttribute("aria-label").replace("Video abspielen: ", "");
+    iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+    iframe.allowFullscreen = true;
+    button.replaceWith(iframe);
   });
 });
