@@ -104,3 +104,51 @@ document.querySelectorAll(".video[data-youtube]").forEach((video) => {
     button.replaceWith(iframe);
   });
 });
+
+// Uhrzeit in Bern beim Fotostapel
+const clocks = document.querySelectorAll(".bern-clock");
+if (clocks.length) {
+  const clockFormat = new Intl.DateTimeFormat("de-CH", { timeZone: "Europe/Zurich", hour: "2-digit", minute: "2-digit" });
+  const tick = () => clocks.forEach((c) => (c.textContent = clockFormat.format(new Date())));
+  tick();
+  setInterval(tick, 15000);
+}
+
+// Maus-Parallax: Ebenen folgen der Maus sanft, je nach Tiefe unterschiedlich weit.
+// Nur mit Maus und ohne Wunsch nach reduzierter Bewegung.
+const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (canHover && !reduceMotion) {
+  document.querySelectorAll("[data-parallax]").forEach((stack) => {
+    const area = stack.closest("section") || stack;
+    const layers = [...stack.querySelectorAll("[data-depth]")];
+    let targetX = 0, targetY = 0, x = 0, y = 0, running = false;
+    const loop = () => {
+      x += (targetX - x) * 0.08;
+      y += (targetY - y) * 0.08;
+      layers.forEach((el) => {
+        const depth = parseFloat(el.dataset.depth);
+        el.style.transform = `translate3d(${(x * depth).toFixed(2)}px, ${(y * depth).toFixed(2)}px, 0)`;
+      });
+      running = Math.abs(targetX - x) > 0.001 || Math.abs(targetY - y) > 0.001;
+      if (running) requestAnimationFrame(loop);
+    };
+    const start = () => {
+      if (!running) {
+        running = true;
+        requestAnimationFrame(loop);
+      }
+    };
+    area.addEventListener("pointermove", (e) => {
+      const r = area.getBoundingClientRect();
+      targetX = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      targetY = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      start();
+    });
+    area.addEventListener("pointerleave", () => {
+      targetX = 0;
+      targetY = 0;
+      start();
+    });
+  });
+}
