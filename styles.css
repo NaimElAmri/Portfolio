@@ -318,6 +318,48 @@ a {
      nicht der ganze Innenabstand der Section */
   scroll-margin-top: calc(24px - clamp(72px, 11vw, 132px));
 }
+/* Kapitelmarke zwischen den Sections, wie im Schnittprogramm.
+   Der Punkt wandert beim Scrollen über die Linie. */
+.chapter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.chapter-num {
+  font: italic 400 22px / 1 var(--font-display);
+  letter-spacing: 0;
+  color: var(--accent);
+}
+.chapter-line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  position: relative;
+  container-type: inline-size;
+}
+.chapter-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateX(calc(var(--progress, 1) * (100cqw - 7px)));
+}
+.chapter-star {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  color: var(--accent);
+}
+
 .section-head {
   margin-bottom: clamp(36px, 5vw, 56px);
 }

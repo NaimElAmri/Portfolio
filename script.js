@@ -177,3 +177,18 @@ if (canHover && !reduceMotion) {
     });
   });
 }
+
+// Kapitelmarken: Punkt wandert mit, während die Marke durchs Bild scrollt
+const chapters = document.querySelectorAll(".chapter");
+if (chapters.length && !reduceMotion) {
+  const moveDots = () => {
+    chapters.forEach((chapter) => {
+      const top = chapter.getBoundingClientRect().top;
+      const progress = Math.min(1, Math.max(0, 1 - top / window.innerHeight));
+      chapter.style.setProperty("--progress", progress.toFixed(3));
+    });
+  };
+  moveDots();
+  window.addEventListener("scroll", moveDots, { passive: true });
+  window.addEventListener("resize", moveDots);
+}
