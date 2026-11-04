@@ -229,10 +229,44 @@ a {
     background: var(--bg);
     border-bottom: 1px solid var(--line);
     padding: 8px var(--gutter) 24px;
-    display: none;
+    /* Menü gleitet kurz herein statt hart aufzuspringen */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    clip-path: inset(0 0 100% 0);
+    transition: opacity 0.22s ease,
+      transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+      clip-path 0.28s cubic-bezier(0.2, 0.7, 0.2, 1), visibility 0s linear 0.28s;
   }
   .main-nav.is-open {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 0 0 0);
+    transition: opacity 0.22s ease,
+      transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+      clip-path 0.28s cubic-bezier(0.2, 0.7, 0.2, 1), visibility 0s;
+  }
+  .main-nav li {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.25s ease;
+  }
+  .main-nav.is-open li {
+    opacity: 1;
+    transform: none;
+  }
+  .main-nav.is-open li:nth-child(2) {
+    transition-delay: 0.04s;
+  }
+  .main-nav.is-open li:nth-child(3) {
+    transition-delay: 0.08s;
+  }
+  .main-nav.is-open li:nth-child(4) {
+    transition-delay: 0.12s;
+  }
+  .main-nav.is-open li:nth-child(5) {
+    transition-delay: 0.16s;
   }
   .main-nav ul {
     flex-direction: column;
@@ -405,12 +439,70 @@ a {
     grid-template-columns: minmax(0, 1fr);
     gap: 48px;
   }
+  /* Reihenfolge mobil: Text, Fotos, dann die Buttons */
+  .hero-text {
+    display: contents;
+  }
+  .hero-grid {
+    gap: 0;
+  }
+  .hero .lead {
+    margin-top: 18px;
+  }
   .photo-stack {
+    order: 1;
     width: min(100%, 440px);
-    margin-inline: auto;
+    aspect-ratio: 1 / 0.9;
+    margin: 40px auto 0;
+  }
+  .hero-actions {
+    order: 2;
+    margin-top: 36px;
+  }
+  .print-d {
+    display: none;
+  }
+  .print-a {
+    width: 42%;
+    left: 0;
+    top: 7%;
+    rotate: -6deg;
+  }
+  .print-b {
+    width: 50%;
+    left: 24%;
+    top: 13%;
+  }
+  .print-c {
+    width: 44%;
+    right: 0;
+    top: 0;
+  }
+  .stack-stamp {
+    left: 2%;
+    bottom: 2%;
   }
   .print figcaption {
     font-size: 13px;
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    padding-block: 28px 56px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 10.5vw, 44px);
+    line-height: 1.06;
+  }
+  .hero .lead {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    flex-direction: column;
+  }
+  .hero-actions .btn {
+    justify-content: center;
   }
 }
 .hero-actions {
