@@ -314,6 +314,9 @@ a {
 
 .section {
   padding-block: clamp(72px, 11vw, 132px);
+  /* Beim Sprung aus der Navigation landet der Titel knapp unter der Navbar,
+     nicht der ganze Innenabstand der Section */
+  scroll-margin-top: calc(24px - clamp(72px, 11vw, 132px));
 }
 .section-head {
   margin-bottom: clamp(36px, 5vw, 56px);
