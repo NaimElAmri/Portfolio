@@ -115,20 +115,6 @@ document.querySelectorAll(".video[data-youtube]").forEach((video) => {
   });
 });
 
-// Uhrzeit in Bern beim Fotostapel
-const clocks = document.querySelectorAll(".bern-clock");
-if (clocks.length) {
-  const clockFormat = new Intl.DateTimeFormat("de-CH", {
-    timeZone: "Europe/Zurich",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const tick = () =>
-    clocks.forEach((c) => (c.textContent = clockFormat.format(new Date())));
-  tick();
-  setInterval(tick, 15000);
-}
-
 // Maus-Parallax: Ebenen folgen der Maus sanft, je nach Tiefe unterschiedlich weit.
 // Nur mit Maus und ohne Wunsch nach reduzierter Bewegung.
 const canHover = window.matchMedia(
