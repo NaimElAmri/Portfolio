@@ -5,7 +5,10 @@ const mainNav = document.querySelector(".main-nav");
 if (navToggle && mainNav) {
   const setOpen = (open) => {
     navToggle.setAttribute("aria-expanded", String(open));
-    navToggle.setAttribute("aria-label", open ? "Menü schliessen" : "Menü öffnen");
+    navToggle.setAttribute(
+      "aria-label",
+      open ? "Menü schliessen" : "Menü öffnen"
+    );
     mainNav.classList.toggle("is-open", open);
   };
   navToggle.addEventListener("click", () => {
@@ -22,7 +25,8 @@ if (navToggle && mainNav) {
 // Linie unter dem Header, sobald gescrollt wird
 const header = document.querySelector(".site-header");
 if (header) {
-  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+  const onScroll = () =>
+    header.classList.toggle("is-scrolled", window.scrollY > 8);
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 }
@@ -40,7 +44,10 @@ if (navSections.length) {
       if (section.getBoundingClientRect().top <= line) current = section;
     });
     // Ganz unten zählt der letzte Abschnitt, auch wenn er kurz ist
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 2
+    ) {
       current = navSections[navSections.length - 1];
     }
     navLinks.forEach((link) => {
@@ -98,8 +105,11 @@ document.querySelectorAll(".video[data-youtube]").forEach((video) => {
     if (list) params.set("list", list);
     const iframe = document.createElement("iframe");
     iframe.src = `https://www.youtube-nocookie.com/embed/${id}?${params}`;
-    iframe.title = button.getAttribute("aria-label").replace("Video abspielen: ", "");
-    iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+    iframe.title = button
+      .getAttribute("aria-label")
+      .replace("Video abspielen: ", "");
+    iframe.allow =
+      "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";
     iframe.allowFullscreen = true;
     button.replaceWith(iframe);
   });
@@ -108,27 +118,42 @@ document.querySelectorAll(".video[data-youtube]").forEach((video) => {
 // Uhrzeit in Bern beim Fotostapel
 const clocks = document.querySelectorAll(".bern-clock");
 if (clocks.length) {
-  const clockFormat = new Intl.DateTimeFormat("de-CH", { timeZone: "Europe/Zurich", hour: "2-digit", minute: "2-digit" });
-  const tick = () => clocks.forEach((c) => (c.textContent = clockFormat.format(new Date())));
+  const clockFormat = new Intl.DateTimeFormat("de-CH", {
+    timeZone: "Europe/Zurich",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const tick = () =>
+    clocks.forEach((c) => (c.textContent = clockFormat.format(new Date())));
   tick();
   setInterval(tick, 15000);
 }
 
 // Maus-Parallax: Ebenen folgen der Maus sanft, je nach Tiefe unterschiedlich weit.
 // Nur mit Maus und ohne Wunsch nach reduzierter Bewegung.
-const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const canHover = window.matchMedia(
+  "(hover: hover) and (pointer: fine)"
+).matches;
+const reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
 if (canHover && !reduceMotion) {
   document.querySelectorAll("[data-parallax]").forEach((stack) => {
     const area = stack.closest("section") || stack;
     const layers = [...stack.querySelectorAll("[data-depth]")];
-    let targetX = 0, targetY = 0, x = 0, y = 0, running = false;
+    let targetX = 0,
+      targetY = 0,
+      x = 0,
+      y = 0,
+      running = false;
     const loop = () => {
       x += (targetX - x) * 0.08;
       y += (targetY - y) * 0.08;
       layers.forEach((el) => {
         const depth = parseFloat(el.dataset.depth);
-        el.style.transform = `translate3d(${(x * depth).toFixed(2)}px, ${(y * depth).toFixed(2)}px, 0)`;
+        el.style.transform = `translate3d(${(x * depth).toFixed(2)}px, ${(
+          y * depth
+        ).toFixed(2)}px, 0)`;
       });
       running = Math.abs(targetX - x) > 0.001 || Math.abs(targetY - y) > 0.001;
       if (running) requestAnimationFrame(loop);

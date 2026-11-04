@@ -33,13 +33,14 @@
   --accent-light: #7fc0c5;
 
   --font-display: "Newsreader", Georgia, "Times New Roman", serif;
-  --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI",
+    sans-serif;
 
   --wrap: 1120px;
   --gutter: clamp(20px, 5vw, 48px);
   --header-h: 72px;
-  --radius: 8px;
-  --radius-sm: 5px;
+  --radius: 5px;
+  --radius-sm: 3px;
 }
 
 *,
@@ -327,7 +328,8 @@ a {
   margin: 0;
   background: #fff;
   padding: 8px;
-  box-shadow: 0 1px 2px rgba(20, 34, 41, 0.08), 0 18px 40px -18px rgba(20, 34, 41, 0.35);
+  box-shadow: 0 1px 2px rgba(20, 34, 41, 0.08),
+    0 18px 40px -18px rgba(20, 34, 41, 0.35);
 }
 .print img {
   display: block;
@@ -352,10 +354,33 @@ a {
 .print-d img {
   aspect-ratio: 1 / 1;
 }
-.print-a { width: 38%; left: 2%; top: 4%; rotate: -7deg; }
-.print-b { width: 46%; left: 20%; top: 14%; rotate: -2deg; z-index: 2; }
-.print-c { width: 42%; right: 0; top: 0; rotate: 5deg; z-index: 1; }
-.print-d { width: 30%; right: 8%; bottom: 2%; rotate: -5deg; z-index: 3; }
+.print-a {
+  width: 38%;
+  left: 2%;
+  top: 4%;
+  rotate: -7deg;
+}
+.print-b {
+  width: 46%;
+  left: 20%;
+  top: 14%;
+  rotate: -2deg;
+  z-index: 2;
+}
+.print-c {
+  width: 42%;
+  right: 0;
+  top: 0;
+  rotate: 5deg;
+  z-index: 1;
+}
+.print-d {
+  width: 30%;
+  right: 8%;
+  bottom: 2%;
+  rotate: -5deg;
+  z-index: 3;
+}
 .stack-stamp {
   position: absolute;
   left: 6%;
@@ -403,7 +428,8 @@ a {
   font-weight: 500;
   text-decoration: none;
   border: 1px solid var(--ink);
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
 }
 .btn-primary {
   background: var(--ink);
@@ -612,7 +638,11 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(20, 34, 41, 0.35), rgba(20, 34, 41, 0) 55%);
+  background: linear-gradient(
+    to top,
+    rgba(20, 34, 41, 0.35),
+    rgba(20, 34, 41, 0) 55%
+  );
 }
 .video-play .play-icon {
   position: absolute;
@@ -673,7 +703,11 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(20, 34, 41, 0.4), rgba(20, 34, 41, 0) 50%);
+  background: linear-gradient(
+    to top,
+    rgba(20, 34, 41, 0.4),
+    rgba(20, 34, 41, 0) 50%
+  );
 }
 .social-handle {
   position: absolute;

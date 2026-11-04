@@ -276,7 +276,17 @@ const gallery = document.getElementById("gallery");
 const lightbox = document.getElementById("lightbox");
 
 function renderPlaceholders() {
-  const ratios = ["4 / 5", "3 / 2", "2 / 3", "1 / 1", "3 / 2", "4 / 5", "2 / 3", "3 / 2", "4 / 5"];
+  const ratios = [
+    "4 / 5",
+    "3 / 2",
+    "2 / 3",
+    "1 / 1",
+    "3 / 2",
+    "4 / 5",
+    "2 / 3",
+    "3 / 2",
+    "4 / 5",
+  ];
   ratios.forEach((ratio) => {
     const item = document.createElement("figure");
     item.className = "gallery-item placeholder";
@@ -369,8 +379,12 @@ function closeLightbox() {
 }
 
 lightbox.querySelector(".lb-close").addEventListener("click", closeLightbox);
-lightbox.querySelector(".lb-prev").addEventListener("click", () => showPhoto(current - 1));
-lightbox.querySelector(".lb-next").addEventListener("click", () => showPhoto(current + 1));
+lightbox
+  .querySelector(".lb-prev")
+  .addEventListener("click", () => showPhoto(current - 1));
+lightbox
+  .querySelector(".lb-next")
+  .addEventListener("click", () => showPhoto(current + 1));
 lightbox.addEventListener("click", (e) => {
   if (e.target === lightbox || e.target.tagName === "FIGURE") closeLightbox();
 });
@@ -383,7 +397,11 @@ document.addEventListener("keydown", (e) => {
 
 // Wischen auf dem Handy
 let touchX = null;
-lightbox.addEventListener("touchstart", (e) => (touchX = e.touches[0].clientX), { passive: true });
+lightbox.addEventListener(
+  "touchstart",
+  (e) => (touchX = e.touches[0].clientX),
+  { passive: true }
+);
 lightbox.addEventListener("touchend", (e) => {
   if (touchX === null) return;
   const dx = e.changedTouches[0].clientX - touchX;
