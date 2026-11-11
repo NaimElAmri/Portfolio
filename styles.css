@@ -1032,10 +1032,11 @@ a {
   padding-block: 20px 28px;
 }
 .footer-bar {
-  display: flex;
-  flex-wrap: wrap;
+  /* Drei Spalten mit gleich breiten Rändern, damit die Icons genau in der
+     Mitte sitzen, auch wenn links mehr Text steht als rechts */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 12px 24px;
   font-size: 13.5px;
   color: var(--muted);
@@ -1055,9 +1056,20 @@ a {
   width: 16px;
   height: 16px;
 }
+.footer-bar > :last-child {
+  justify-self: end;
+}
 @media (max-width: 760px) {
   .footer-bar {
-    justify-content: flex-start;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .footer-bar > :last-child {
+    justify-self: center;
+  }
+  .footer-bar .social {
+    order: -1;
   }
 }
 .visually-hidden {
