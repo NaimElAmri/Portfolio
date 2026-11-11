@@ -237,7 +237,7 @@ if ("ResizeObserver" in window)
 const heroSets = [
   {
     a: "img/fotografie/torii-rot-klein.webp",
-    c: ["img/hero/hortensien.webp", "Hortensien"],
+    c: ["img/fotografie/hortensien-klein.webp", "Hortensien"],
     d: "img/fotografie/kuppel-klein.webp",
   },
   {
