@@ -819,12 +819,19 @@
       </svg>
     </div>
 
-    <footer class="site-footer" id="kontakt">
+    <section class="contact" id="kontakt" aria-labelledby="kontakt-title">
       <div class="wrap">
-        <h2 class="visually-hidden">Kontakt</h2>
-        <div class="talk">
-          <p class="talk-line talk-left reveal">Lust auf Zusammenarbeit?</p>
-          <p class="talk-line talk-mid reveal" style="--delay: 0.15s">
+        <div class="contact-q reveal" style="--reveal-x: -32px">
+          <h2 class="contact-title" id="kontakt-title">
+            Lust auf <em>Zusammenarbeit?</em>
+          </h2>
+          <p class="contact-text">
+            Ob Video, Fotografie oder Social Media: Ich freue mich über neue
+            Projekte, Ideen und Menschen, mit denen ich etwas erzählen kann.
+          </p>
+        </div>
+        <div class="contact-a reveal" style="--reveal-x: 32px; --delay: 0.15s">
+          <p class="contact-reply">
             Dann
             <a
               class="mail-link"
@@ -833,20 +840,26 @@
               data-domain="outlook.com"
               target="_blank"
               rel="noopener"
-              >schreibe mir eine Mail.</a
+              >schreib mir eine Mail.</a
             >
           </p>
-          <p class="talk-line talk-right reveal" style="--delay: 0.3s">
+          <p class="contact-alt">
             oder schreib mir auf
             <a
               href="https://linkedin.com/in/naim-el-amri-fernandez"
               target="_blank"
               rel="noopener"
-              >LinkedIn!</a
+              >LinkedIn</a
             >
           </p>
         </div>
-        <ul class="social">
+      </div>
+    </section>
+
+    <footer class="site-footer site-footer--bar">
+      <div class="wrap footer-bar">
+        <span>© 2026 Naim El Amri Fernandez</span>
+        <ul class="social social--small">
           <li>
             <a
               href="https://linkedin.com/in/naim-el-amri-fernandez"
@@ -915,11 +928,31 @@
               </svg>
             </a>
           </li>
+          <li>
+            <a
+              href="https://www.youtube.com/playlist?list=PLBDZt1fObJvuMvbIPOS-Mj3StlovrY8gO"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube: MMP Premium"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2.5 17a24.1 24.1 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.1 24.1 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                />
+                <path d="m10 15 5-3-5-3z" />
+              </svg>
+            </a>
+          </li>
         </ul>
-        <div class="footer-bottom">
-          <span>© 2026 Naim El Amri Fernandez</span>
-          <a href="datenschutz.html">Datenschutz</a>
-        </div>
+        <a href="datenschutz.html">Datenschutz</a>
       </div>
     </footer>
 

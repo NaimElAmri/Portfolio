@@ -965,43 +965,89 @@ a {
   border-top: 1px solid var(--line);
   padding-block: clamp(56px, 8vw, 96px) 32px;
 }
-/* Kontakt als kleines Gespräch: von links nach rechts versetzt */
-.talk {
-  display: grid;
-  gap: clamp(10px, 1.6vw, 18px);
+/* Kontakt: Frage links, Antwort rechts, beide gleiten von ihrer Seite herein */
+.contact {
+  padding-block: clamp(72px, 10vw, 136px) clamp(88px, 12vw, 152px);
 }
-.talk-line {
+.contact-q {
+  max-width: 34rem;
+}
+.contact-title {
+  font: 400 clamp(32px, 4vw, 48px) / 1.1 var(--font-display);
   margin: 0;
-  font: 400 clamp(32px, 5vw, 64px) / 1.1 var(--font-display);
-  text-wrap: balance;
 }
-.talk-line a {
+.contact-title em {
   color: var(--accent);
-  font-style: italic;
+}
+.contact-text {
+  color: var(--muted);
+  margin: 20px 0 0;
+  max-width: 46ch;
+}
+.contact-a {
+  text-align: right;
+  margin-top: clamp(40px, 6vw, 72px);
+}
+.contact-reply {
+  margin: 0;
+  font: 400 clamp(24px, 2.8vw, 34px) / 1.2 var(--font-display);
+  color: var(--ink);
+}
+.contact-reply a,
+.contact-alt a {
+  color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
   text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
   transition: text-decoration-color 0.2s ease;
 }
-.talk-line a:hover {
+.contact-reply a {
+  font-style: italic;
+}
+.contact-reply a:hover,
+.contact-alt a:hover {
   text-decoration-color: var(--accent);
 }
-.talk-left {
-  --reveal-x: -32px;
+.contact-alt {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 17px;
 }
-.talk-mid {
-  --reveal-x: -32px;
-  padding-left: clamp(24px, 14vw, 200px);
+
+/* Fussleiste: Copyright, Profile, Datenschutz */
+.site-footer--bar {
+  border-top: 1px solid var(--line);
+  padding-block: 20px 28px;
+}
+.footer-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  font-size: 13.5px;
   color: var(--muted);
 }
-.talk-right {
-  --reveal-x: 32px;
-  text-align: right;
+.footer-bar > a {
+  color: var(--muted);
 }
-.chapter + .site-footer {
-  border-top: 0;
-  padding-top: clamp(40px, 6vw, 72px);
+.footer-bar .social {
+  margin: 0;
+  gap: 6px;
+}
+.footer-bar .social a {
+  width: 34px;
+  height: 34px;
+}
+.footer-bar .social svg {
+  width: 16px;
+  height: 16px;
+}
+@media (max-width: 760px) {
+  .footer-bar {
+    justify-content: flex-start;
+  }
 }
 .visually-hidden {
   position: absolute;
