@@ -236,18 +236,18 @@ if ("ResizeObserver" in window)
 // der Mitte, nur die Abzüge rundherum wechseln. Ohne JavaScript bleibt Set 1.
 const heroSets = [
   {
-    a: "img/fotografie/kuppel-klein.webp",
-    c: ["img/hero/aare.webp", "Aare, kurz vor sechs"],
-    d: "img/fotografie/torii-rot-klein.webp",
+    a: "img/fotografie/torii-rot-klein.webp",
+    c: ["img/hero/hortensien.webp", "Hortensien"],
+    d: "img/fotografie/kuppel-klein.webp",
   },
   {
-    a: "img/fotografie/reiher-klein.webp",
-    c: ["img/fotografie/altstadt-wolken-klein.webp", "Münster im Wolkenmeer"],
-    d: "img/fotografie/torii-baum-klein.webp",
+    a: "img/fotografie/torii-baum-klein.webp",
+    c: ["img/fotografie/altstadt-wolken-klein.webp", "Münster Wolkenmeer"],
+    d: "img/fotografie/reiher-klein.webp",
   },
   {
     a: "img/fotografie/bruecke-mond-klein.webp",
-    c: ["img/fotografie/spaziergang-klein.webp", "Gemütlicher Spaziergang"],
+    c: ["img/fotografie/spaziergang-klein.webp", "Ruhiger Spaziergang"],
     d: "img/fotografie/koi-klein.webp",
   },
 ];
