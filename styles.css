@@ -622,7 +622,7 @@ a {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--accent);
   margin-bottom: 6px;
 }
 .facts dd {
@@ -858,7 +858,7 @@ a {
   font: 400 25px/1.2 var(--font-display);
   margin: 0 0 12px;
   padding-top: 18px;
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--accent);
 }
 .skill-group ul {
   list-style: none;
