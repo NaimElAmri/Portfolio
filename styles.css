@@ -432,6 +432,9 @@ a {
 }
 .print-c figcaption {
   text-align: right;
+  /* Links liegt das Porträt darüber: längere Texte brechen davor um */
+  padding-left: 20%;
+  line-height: 1.2;
 }
 .print-a img,
 .print-d img {
@@ -518,6 +521,9 @@ a {
   }
   .print figcaption {
     font-size: 13px;
+  }
+  .print-c figcaption {
+    padding-left: 42%;
   }
 }
 @media (max-width: 480px) {

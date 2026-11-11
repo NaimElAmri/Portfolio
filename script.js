@@ -231,3 +231,44 @@ window.addEventListener("scroll", requestScroll, { passive: true });
 window.addEventListener("resize", requestScroll);
 if ("ResizeObserver" in window)
   new ResizeObserver(requestScroll).observe(document.body);
+
+// Hero: bei jedem Laden ein anderes Bilder-Set. Das Porträt bleibt immer in
+// der Mitte, nur die Abzüge rundherum wechseln. Ohne JavaScript bleibt Set 1.
+const heroSets = [
+  {
+    a: "img/fotografie/kuppel-klein.webp",
+    c: ["img/hero/aare.webp", "Aare, kurz vor sechs"],
+    d: "img/fotografie/torii-rot-klein.webp",
+  },
+  {
+    a: "img/fotografie/reiher-klein.webp",
+    c: ["img/fotografie/altstadt-wolken-klein.webp", "Münster im Wolkenmeer"],
+    d: "img/fotografie/torii-baum-klein.webp",
+  },
+  {
+    a: "img/fotografie/bruecke-mond-klein.webp",
+    c: ["img/fotografie/spaziergang-klein.webp", "Gemütlicher Spaziergang"],
+    d: "img/fotografie/koi-klein.webp",
+  },
+];
+const stack = document.querySelector(".photo-stack");
+if (stack) {
+  let last = -1;
+  try {
+    last = Number(localStorage.getItem("heroSet") ?? -1);
+  } catch (e) {}
+  const options = heroSets.map((_, i) => i).filter((i) => i !== last);
+  const pick = options[Math.floor(Math.random() * options.length)];
+  try {
+    localStorage.setItem("heroSet", String(pick));
+  } catch (e) {}
+  const set = heroSets[pick];
+  const imgA = stack.querySelector(".print-a img");
+  const imgC = stack.querySelector(".print-c img");
+  const capC = stack.querySelector(".print-c figcaption");
+  const imgD = stack.querySelector(".print-d img");
+  if (imgA) imgA.src = set.a;
+  if (imgC) imgC.src = set.c[0];
+  if (capC) capC.textContent = set.c[1];
+  if (imgD) imgD.src = set.d;
+}
