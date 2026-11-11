@@ -353,6 +353,10 @@ a {
   background: var(--accent);
   transform: translateX(calc(var(--progress, 1) * (100cqw - 7px)));
 }
+/* Vor dem Kontakt ohne Punkt: dort erreicht er das Ende nie */
+.chapter--plain .chapter-line::after {
+  content: none;
+}
 .chapter-star {
   width: 14px;
   height: 14px;
