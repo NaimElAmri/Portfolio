@@ -187,3 +187,47 @@ document.querySelectorAll(".mail-link").forEach((link) => {
   link.removeAttribute("target");
   link.removeAttribute("rel");
 });
+
+// Kleine Scroll-Details: Lesefortschritt unter dem Header, Porträt mit
+// leichter Tiefe und Index für das gestaffelte Einblenden von Tags und Einträgen.
+if (header) {
+  const bar = document.createElement("span");
+  bar.className = "scroll-progress";
+  bar.setAttribute("aria-hidden", "true");
+  header.append(bar);
+}
+
+document.querySelectorAll(".tools, .cv-list").forEach((list) => {
+  [...list.children].forEach((item, i) => item.style.setProperty("--i", i));
+});
+
+const aboutImg = document.querySelector(".about-photo img");
+let ticking = false;
+const onScroll = () => {
+  ticking = false;
+  if (header) {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+    header.style.setProperty("--page-progress", progress.toFixed(4));
+  }
+  if (aboutImg && !reduceMotion) {
+    const r = aboutImg.parentElement.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < window.innerHeight) {
+      // +0.5 wenn das Bild unten reinkommt, -0.5 wenn es oben rausgeht
+      const center = (r.top + r.height / 2) / window.innerHeight - 0.5;
+      const t = Math.max(-0.5, Math.min(0.5, center));
+      aboutImg.style.setProperty("--photo-shift", `${(t * 40).toFixed(1)}px`);
+    }
+  }
+};
+const requestScroll = () => {
+  if (!ticking) {
+    ticking = true;
+    requestAnimationFrame(onScroll);
+  }
+};
+onScroll();
+window.addEventListener("scroll", requestScroll, { passive: true });
+window.addEventListener("resize", requestScroll);
+if ("ResizeObserver" in window)
+  new ResizeObserver(requestScroll).observe(document.body);

@@ -968,6 +968,7 @@ a {
 /* Kontakt: Frage links, Antwort rechts, beide gleiten von ihrer Seite herein */
 .contact {
   padding-block: clamp(72px, 10vw, 136px) clamp(88px, 12vw, 152px);
+  overflow-x: clip;
 }
 .contact-q {
   max-width: 34rem;
@@ -1289,6 +1290,75 @@ a {
   transform: none;
 }
 
+/* ---------- Kleine Bewegungen beim Scrollen ----------
+   Alles bleibt dezent und hört auf, sobald es an seinem Platz ist. */
+
+/* Lesefortschritt als feine Linie unter dem Header */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(var(--page-progress, 0));
+  pointer-events: none;
+}
+
+/* Kursives Wort im Section-Titel kommt einen Moment später */
+.js .section-head .section-title em {
+  display: inline-block;
+  opacity: 0;
+  translate: 0 0.25em;
+  transition: opacity 0.6s ease 0.25s,
+    translate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s;
+}
+.js .section-head.is-visible .section-title em {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Porträt bewegt sich im Rahmen etwas langsamer als die Seite */
+.about-photo {
+  overflow: hidden;
+}
+.about-photo img {
+  scale: 1.08;
+  translate: 0 var(--photo-shift, 0px);
+  will-change: translate;
+}
+
+/* Tool-Tags und Werdegang-Einträge erscheinen nacheinander */
+.js .reveal .tools span,
+.js .reveal .cv-item {
+  opacity: 0;
+  translate: 0 8px;
+  transition: opacity 0.5s ease, translate 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(0.25s + var(--i, 0) * 60ms);
+}
+.js .reveal.is-visible .tools span,
+.js .reveal.is-visible .cv-item {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Projektkarten heben sich beim Überfahren leicht an */
+.project {
+  transition: translate 0.35s ease, box-shadow 0.35s ease;
+}
+.js .project.reveal {
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    translate 0.35s ease, box-shadow 0.35s ease;
+  transition-delay: var(--delay, 0s), var(--delay, 0s), 0s, 0s;
+}
+@media (hover: hover) {
+  .project:hover {
+    translate: 0 -4px;
+    box-shadow: 0 22px 40px -28px rgba(20, 34, 41, 0.45);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1297,6 +1367,18 @@ a {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .js .section-head .section-title em,
+  .js .reveal .tools span,
+  .js .reveal .cv-item {
+    opacity: 1;
+    translate: none;
+  }
+  .about-photo img {
+    translate: none;
+  }
+  .project:hover {
+    translate: none;
   }
   *,
   *::before,
