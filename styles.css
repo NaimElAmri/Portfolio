@@ -965,49 +965,56 @@ a {
   border-top: 1px solid var(--line);
   padding-block: clamp(56px, 8vw, 96px) 32px;
 }
-.footer-cta {
-  font: 400 clamp(30px, 4.2vw, 48px) / 1.12 var(--font-display);
+/* Kontakt als kleines Gespräch: von links nach rechts versetzt */
+.talk {
+  display: grid;
+  gap: clamp(10px, 1.6vw, 18px);
+}
+.talk-line {
   margin: 0;
-  max-width: 24ch;
+  font: 400 clamp(32px, 5vw, 64px) / 1.1 var(--font-display);
   text-wrap: balance;
 }
-.footer-cta em {
+.talk-line a {
   color: var(--accent);
-}
-.footer-text {
-  color: var(--muted);
-  max-width: 48ch;
-  margin: 20px 0 0;
-}
-.footer-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 14px 24px;
-  margin-top: 32px;
-}
-.footer-alt {
-  margin: 0;
-  color: var(--muted);
-}
-.footer-alt a {
-  color: var(--accent);
+  font-style: italic;
+  text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  transition: text-decoration-color 0.2s ease;
+}
+.talk-line a:hover {
+  text-decoration-color: var(--accent);
+}
+.talk-left {
+  --reveal-x: -32px;
+}
+.talk-mid {
+  --reveal-x: -32px;
+  padding-left: clamp(24px, 14vw, 200px);
+  color: var(--muted);
+}
+.talk-right {
+  --reveal-x: 32px;
+  text-align: right;
 }
 .chapter + .site-footer {
   border-top: 0;
   padding-top: clamp(40px, 6vw, 72px);
 }
-.footer-cta a {
-  color: var(--accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 6px;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 .social {
   display: flex;
   gap: 10px;
-  margin-top: 32px;
+  margin-top: clamp(40px, 6vw, 64px);
   list-style: none;
   padding: 0;
 }
@@ -1227,7 +1234,7 @@ a {
 /* ---------- Scroll-Animationen (dezent) ---------- */
 .js .reveal {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translate(var(--reveal-x, 0), 18px);
   transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
   transition-delay: var(--delay, 0s);
 }
