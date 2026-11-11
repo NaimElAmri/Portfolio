@@ -1122,6 +1122,20 @@ a {
 .page-intro h1 em {
   color: var(--accent);
 }
+/* Leitsatz aus der Instagram-Bio */
+.intro-quote {
+  margin: clamp(32px, 4vw, 44px) 0 0;
+  padding-left: 18px;
+  border-left: 2px solid var(--accent);
+}
+.intro-quote p {
+  margin: 0;
+  font: italic 400 clamp(20px, 2.2vw, 26px) / 1.3 var(--font-display);
+  color: var(--ink);
+}
+.intro-quote em {
+  color: var(--accent);
+}
 .back-link {
   display: inline-flex;
   align-items: center;
