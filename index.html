@@ -39,7 +39,7 @@
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
     <link
       rel="preload"
-      href="fonts/newsreader-latin.woff2"
+      href="fonts/playfair-display-latin.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -804,17 +804,57 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+    <div class="wrap chapter" aria-hidden="true">
+      <span class="chapter-num">05</span>
+      <span class="chapter-line"></span>
+      <span class="chapter-name">Kontakt</span>
+      <svg class="chapter-star" viewBox="0 0 24 24">
+        <path
+          d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        />
+      </svg>
+    </div>
+
+    <footer class="site-footer" id="kontakt">
       <div class="wrap">
-        <p class="footer-cta reveal">
-          Lust auf eine Zusammenarbeit? Schreib mir auf
+        <h2 class="footer-cta reveal">Lass uns <em>reden.</em></h2>
+        <p class="footer-text reveal" style="--delay: 0.08s">
+          Du suchst Unterstützung bei Video, Fotografie oder Social Media, oder
+          hast einfach eine Idee? Schreib mir, ich freue mich.
+        </p>
+        <div class="footer-actions reveal" style="--delay: 0.16s">
           <a
+            class="btn btn-primary mail-link"
             href="https://linkedin.com/in/naim-el-amri-fernandez"
+            data-user="naimelamri"
+            data-domain="outlook.com"
             target="_blank"
             rel="noopener"
-            >LinkedIn</a
-          >.
-        </p>
+          >
+            Schreib mir eine Mail
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+            </svg>
+          </a>
+          <p class="footer-alt">
+            oder schreib mir auf
+            <a
+              href="https://linkedin.com/in/naim-el-amri-fernandez"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </p>
+        </div>
         <ul class="social">
           <li>
             <a

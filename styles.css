@@ -1,16 +1,16 @@
 /* Schriften (lokal gehostet, SIL Open Font License) */
 @font-face {
-  font-family: "Newsreader";
-  src: url("fonts/newsreader-latin.woff2") format("woff2");
+  font-family: "Playfair Display";
+  src: url("fonts/playfair-display-latin.woff2") format("woff2");
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 900;
   font-display: swap;
 }
 @font-face {
-  font-family: "Newsreader";
-  src: url("fonts/newsreader-italic-latin.woff2") format("woff2");
+  font-family: "Playfair Display";
+  src: url("fonts/playfair-display-italic-latin.woff2") format("woff2");
   font-style: italic;
-  font-weight: 400;
+  font-weight: 400 900;
   font-display: swap;
 }
 @font-face {
@@ -32,7 +32,7 @@
   --accent-soft: #d7e7e7;
   --accent-light: #7fc0c5;
 
-  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI",
     sans-serif;
 
@@ -970,6 +970,34 @@ a {
   margin: 0;
   max-width: 24ch;
   text-wrap: balance;
+}
+.footer-cta em {
+  color: var(--accent);
+}
+.footer-text {
+  color: var(--muted);
+  max-width: 48ch;
+  margin: 20px 0 0;
+}
+.footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 24px;
+  margin-top: 32px;
+}
+.footer-alt {
+  margin: 0;
+  color: var(--muted);
+}
+.footer-alt a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.chapter + .site-footer {
+  border-top: 0;
+  padding-top: clamp(40px, 6vw, 72px);
 }
 .footer-cta a {
   color: var(--accent);

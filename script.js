@@ -178,3 +178,12 @@ if (chapters.length && !reduceMotion) {
   window.addEventListener("scroll", moveDots, { passive: true });
   window.addEventListener("resize", moveDots);
 }
+
+// Mail-Adresse erst im Browser zusammensetzen, damit einfache Spam-Bots sie
+// nicht im Quelltext finden. Ohne JavaScript führt der Button zu LinkedIn.
+document.querySelectorAll(".mail-link").forEach((link) => {
+  const address = `${link.dataset.user}@${link.dataset.domain}`;
+  link.href = `mailto:${address}`;
+  link.removeAttribute("target");
+  link.removeAttribute("rel");
+});
