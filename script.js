@@ -188,15 +188,8 @@ document.querySelectorAll(".mail-link").forEach((link) => {
   link.removeAttribute("rel");
 });
 
-// Kleine Scroll-Details: Lesefortschritt unter dem Header, Porträt mit
-// leichter Tiefe und Index für das gestaffelte Einblenden von Tags und Einträgen.
-if (header) {
-  const bar = document.createElement("span");
-  bar.className = "scroll-progress";
-  bar.setAttribute("aria-hidden", "true");
-  header.append(bar);
-}
-
+// Kleine Scroll-Details: Porträt mit leichter Tiefe und Index für das
+// gestaffelte Einblenden von Tags und Einträgen.
 document.querySelectorAll(".tools, .cv-list").forEach((list) => {
   [...list.children].forEach((item, i) => item.style.setProperty("--i", i));
 });
@@ -205,11 +198,6 @@ const aboutImg = document.querySelector(".about-photo img");
 let ticking = false;
 const onScroll = () => {
   ticking = false;
-  if (header) {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
-    header.style.setProperty("--page-progress", progress.toFixed(4));
-  }
   if (aboutImg && !reduceMotion) {
     const r = aboutImg.parentElement.getBoundingClientRect();
     if (r.bottom > 0 && r.top < window.innerHeight) {

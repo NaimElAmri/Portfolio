@@ -1303,19 +1303,6 @@ a {
 /* ---------- Kleine Bewegungen beim Scrollen ----------
    Alles bleibt dezent und hört auf, sobald es an seinem Platz ist. */
 
-/* Lesefortschritt als feine Linie unter dem Header */
-.scroll-progress {
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 2px;
-  background: var(--accent);
-  transform-origin: left;
-  transform: scaleX(var(--page-progress, 0));
-  pointer-events: none;
-}
-
 /* Kursives Wort im Section-Titel kommt einen Moment später */
 .js .section-head .section-title em {
   display: inline-block;
